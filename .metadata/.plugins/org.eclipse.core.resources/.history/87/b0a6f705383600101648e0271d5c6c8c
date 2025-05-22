@@ -1,0 +1,5 @@
+package com.bhagyashri.codebproject.controller;
+
+public class AuthController {
+
+}

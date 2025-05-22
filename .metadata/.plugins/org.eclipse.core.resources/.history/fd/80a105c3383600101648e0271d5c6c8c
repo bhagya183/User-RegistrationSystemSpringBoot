@@ -1,0 +1,5 @@
+package com.bhagyashri.codebproject.entity;
+
+public class PasswordResetToken {
+
+}

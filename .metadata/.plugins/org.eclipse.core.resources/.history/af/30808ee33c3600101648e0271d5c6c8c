@@ -1,0 +1,66 @@
+package com.bhagyashri.codebproject.controller;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bhagyashri.codebproject.dao.AuthResponse;
+import com.bhagyashri.codebproject.dao.LoginRequest;
+import com.bhagyashri.codebproject.dao.RegisterRequest;
+import com.bhagyashri.codebproject.entity.PasswordResetToken;
+import com.bhagyashri.codebproject.entity.User;
+import com.bhagyashri.codebproject.repository.UserRepository;
+import com.bhagyashri.codebproject.service.AuthService;
+import com.bhagyashri.codebproject.service.UserService;
+
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+
+    @Autowired
+    private UserService userService;
+    
+    @Autowired 
+    private AuthService authService;
+
+    @PostMapping("/register")
+    public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
+        return ResponseEntity.ok(userService.register(request));
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authService.login(request));
+    }
+    
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> forgotPassword(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+
+        Optional<User> user = UserRepository.findByEmail(email);
+        if (user.isEmpty()) return ResponseEntity.badRequest().body("Email not found");
+
+        String token = UUID.randomUUID().toString();
+        LocalDateTime expiry = LocalDateTime.now().plusMinutes(15);
+
+        PasswordResetToken resetToken = new PasswordResetToken();
+        resetToken.setEmail(email);
+        resetToken.setToken(token);
+        resetToken.setExpiryDate(expiry);
+        tokenRepository.save(resetToken);
+
+        String resetLink = "http://localhost:8080/api/auth/reset-password?token=" + token;
+        emailService.sendResetLink(email, resetLink);
+
+        return ResponseEntity.ok("Reset link sent to your email.");
+    }
+
+}
+

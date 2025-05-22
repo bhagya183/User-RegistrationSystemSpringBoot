@@ -1,0 +1,12 @@
+spring.application.name=CodeBProject
+
+spring.jpa.hibernate.ddl-auto=create
+
+spring.jpa.show-sql=true
+
+spring.datasource.url=jdbc:mysql://localhost:3306/bhagyashri_codeb_project_db
+
+spring.datasource.username=codeb_project_user
+
+spring.datasource.password=codeb
+

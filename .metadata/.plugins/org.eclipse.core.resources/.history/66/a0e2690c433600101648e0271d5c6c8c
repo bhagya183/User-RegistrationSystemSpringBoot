@@ -1,0 +1,32 @@
+package com.bhagyashri.codebproject.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bhagyashri.codebproject.dao.AuthResponse;
+import com.bhagyashri.codebproject.dao.LoginRequest;
+import com.bhagyashri.codebproject.security.JwtUtil;
+
+@Service
+public class AuthService {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    
+    @Autowired
+    private JwtUtil jwtUtil;
+    
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
+
+    public AuthResponse login(LoginRequest request) {
+        Authentication auth = authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
+        );
+
+        UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
+        String token = jwtUtil.generateToken(userDetails);
+
+        return new AuthResponse(token, userDetails.getAuthorities().toString());
+    }
+}

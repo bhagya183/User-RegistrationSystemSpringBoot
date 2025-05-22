@@ -1,0 +1,5 @@
+package com.bhagyashri.codebproject.config;
+
+public class SecurityConfig {
+
+}

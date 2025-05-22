@@ -1,0 +1,31 @@
+package com.bhagyashri.codebproject.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bhagyashri.codebproject.dao.RegisterRequest;
+import com.bhagyashri.codebproject.entity.User;
+import com.bhagyashri.codebproject.repository.UserRepository;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired private PasswordEncoder passwordEncoder;
+
+    public String register(RegisterRequest request) {
+        if (userRepository.existsByEmail(request.getEmail()))
+            throw new RuntimeException("Email already exists!");
+
+        User user = new User();
+        user.setFullName(request.getFullName());
+        user.setEmail(request.getEmail());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRoles(request.getRole());
+
+        userRepository.save(user);
+        return "User registered successfully.";
+    }
+}

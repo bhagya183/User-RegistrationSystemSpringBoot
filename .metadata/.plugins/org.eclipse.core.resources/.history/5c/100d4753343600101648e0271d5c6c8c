@@ -1,0 +1,5 @@
+package com.bhagyashri.codebproject.repository;
+
+public interface UserRepository {
+
+}

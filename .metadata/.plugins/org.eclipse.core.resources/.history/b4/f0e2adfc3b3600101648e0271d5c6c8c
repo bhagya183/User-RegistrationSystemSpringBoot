@@ -1,0 +1,5 @@
+package com.bhagyashri.codebproject.service;
+
+public class EmailService {
+
+}
