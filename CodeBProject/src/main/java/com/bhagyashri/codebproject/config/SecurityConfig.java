@@ -43,6 +43,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/brands/**").permitAll()
                 .requestMatchers("/api/zones/**").permitAll()
                 .requestMatchers("/api/estimates/**").permitAll()
+                .requestMatchers("/api/invoices/**").permitAll()
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session

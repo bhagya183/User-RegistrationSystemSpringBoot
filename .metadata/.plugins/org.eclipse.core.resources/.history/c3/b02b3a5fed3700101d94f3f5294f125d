@@ -1,0 +1,28 @@
+package com.bhagyashri.codebproject.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import lombok.Data;
+
+@Data
+public class InvoiceResponse {
+    private Long id;
+    private String invoiceNo;
+    private Long estimateId;
+    private Long chainId;
+    private String companyName;
+    private String gstnNo;
+    private String serviceDetails;
+    private Integer quantity;
+    private BigDecimal costPerQuantity;
+    private BigDecimal amountPayable;
+    private BigDecimal balance;
+    private LocalDateTime dateOfPayment;
+    private LocalDate dateOfService;
+    private String deliveryDetails;
+    private String emailId;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+} 

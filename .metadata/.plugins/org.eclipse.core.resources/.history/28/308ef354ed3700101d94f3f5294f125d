@@ -1,0 +1,50 @@
+package com.bhagyashri.codebproject.dto;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import lombok.Data;
+
+@Data
+public class InvoiceRequest {
+    @NotNull(message = "Estimate ID is required")
+    private Long estimateId;
+
+    @NotNull(message = "Chain ID is required")
+    private Long chainId;
+
+    @NotBlank(message = "Service details are required")
+    private String serviceDetails;
+
+    @NotNull(message = "Quantity is required")
+    @Positive(message = "Quantity must be positive")
+    private Integer quantity;
+
+    @NotNull(message = "Cost per quantity is required")
+    @Positive(message = "Cost per quantity must be positive")
+    private BigDecimal costPerQuantity;
+
+    @NotNull(message = "Amount payable is required")
+    @Positive(message = "Amount payable must be positive")
+    private BigDecimal amountPayable;
+
+    private BigDecimal balance;
+
+    @NotNull(message = "Date of payment is required")
+    private LocalDateTime dateOfPayment;
+
+    @NotNull(message = "Date of service is required")
+    private LocalDate dateOfService;
+
+    @NotBlank(message = "Delivery details are required")
+    private String deliveryDetails;
+
+    @NotBlank(message = "Email ID is required")
+    @Email(message = "Invalid email format")
+    private String emailId;
+} 

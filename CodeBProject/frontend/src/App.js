@@ -11,6 +11,7 @@ import ChainDashboard from './components/ChainDashboard';
 import BrandDashboard from './components/BrandDashboard';
 import ZoneManagement from './components/zone/ZoneManagement';
 import EstimateManagement from './components/estimate/EstimateManagement';
+import InvoiceManagement from './components/invoice/InvoiceManagement';
 import './App.css';
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="brand" element={<BrandDashboard />} />
           <Route path="zone" element={<ZoneManagement />} />
           <Route path="estimate" element={<EstimateManagement />} />
+          <Route path="invoice" element={<InvoiceManagement />} />
         </Route>
         
         {/* Default route - redirect to login */}

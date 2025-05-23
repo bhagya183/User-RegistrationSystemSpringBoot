@@ -46,6 +46,9 @@ const Dashboard = () => {
                             <li>
                                 <Link to="/dashboard/estimate">Estimate Management</Link>
                             </li>
+                            <li>
+                                <Link to="/dashboard/invoice">Invoice Management</Link>
+                            </li>
                         </>
                     )}
                     <li>
