@@ -10,6 +10,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import ChainDashboard from './components/ChainDashboard';
 import BrandDashboard from './components/BrandDashboard';
 import ZoneManagement from './components/zone/ZoneManagement';
+import EstimateManagement from './components/estimate/EstimateManagement';
 import './App.css';
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="chain" element={<ChainDashboard />} />
           <Route path="brand" element={<BrandDashboard />} />
           <Route path="zone" element={<ZoneManagement />} />
+          <Route path="estimate" element={<EstimateManagement />} />
         </Route>
         
         {/* Default route - redirect to login */}

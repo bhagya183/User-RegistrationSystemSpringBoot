@@ -1,0 +1,40 @@
+package com.bhagyashri.codebproject.dto;
+
+import java.time.LocalDate;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import lombok.Data;
+
+@Data
+public class EstimateRequest {
+    @NotNull(message = "Chain ID is required")
+    private Long chainId;
+
+    @NotBlank(message = "Group name is required")
+    private String groupName;
+
+    @NotBlank(message = "Brand name is required")
+    private String brandName;
+
+    @NotBlank(message = "Zone name is required")
+    private String zoneName;
+
+    @NotBlank(message = "Service details are required")
+    private String service;
+
+    @NotNull(message = "Quantity is required")
+    @Positive(message = "Quantity must be positive")
+    private Integer quantity;
+
+    @NotNull(message = "Cost per unit is required")
+    @Positive(message = "Cost per unit must be positive")
+    private Double costPerUnit;
+
+    @NotNull(message = "Delivery date is required")
+    private LocalDate deliveryDate;
+
+    @NotBlank(message = "Delivery details are required")
+    private String deliveryDetails;
+} 

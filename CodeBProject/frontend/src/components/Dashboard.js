@@ -43,6 +43,9 @@ const Dashboard = () => {
                             <li>
                                 <Link to="/dashboard/zone">Zone Management</Link>
                             </li>
+                            <li>
+                                <Link to="/dashboard/estimate">Estimate Management</Link>
+                            </li>
                         </>
                     )}
                     <li>
