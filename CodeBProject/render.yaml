@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: codebproject
+    env: java
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/CodeBProject-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DATASOURCE_URL
+        sync: false
+      - key: DATASOURCE_USER
+        sync: false
+      - key: DATASOURCE_PASSWORD
+        sync: false
+      - key: MAIL_HOST
+        sync: false
+      - key: MAIL_PORT
+        sync: false
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: PORT
+        value: 8080 

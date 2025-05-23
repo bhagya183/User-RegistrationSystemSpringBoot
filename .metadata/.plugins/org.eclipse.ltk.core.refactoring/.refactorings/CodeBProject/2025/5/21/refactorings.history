@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CodeBProject/gitignore&apos; to &apos;add.gitignore&apos;" description="Rename resource &apos;gitignore&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="gitignore" name="add.gitignore" stamp="1747897192246" updateReferences="true"/>
+</session>
