@@ -38,7 +38,8 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/groups/**").permitAll() // Temporarily allow all access to groups endpoints
+                .requestMatchers("/api/groups/**").permitAll()
+                .requestMatchers("/api/chains/**").permitAll()
                 .anyRequest().authenticated()
             )
             .sessionManagement(session -> session

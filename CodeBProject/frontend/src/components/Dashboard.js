@@ -16,7 +16,10 @@ const Dashboard = () => {
                         <Link to="/dashboard">Home</Link>
                     </li>
                     <li>
-                        <Link to="/group">Group Management</Link>
+                        <Link to="/dashboard/group">Group Management</Link>
+                    </li>
+                    <li>
+                        <Link to="/dashboard/chain">Chain Management</Link>
                     </li>
                 </ul>
             </nav>

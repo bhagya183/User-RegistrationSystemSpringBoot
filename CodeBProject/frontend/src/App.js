@@ -7,6 +7,7 @@ import ResetPassword from './components/auth/ResetPassword';
 import Dashboard from './components/Dashboard';
 import GroupDashboard from './components/GroupDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import ChainDashboard from './components/ChainDashboard';
 import './App.css';
 
 const App = () => {
@@ -20,9 +21,10 @@ const App = () => {
         <Route path="/reset-password" element={<ResetPassword />} />
         
         {/* Protected routes */}
-        <Route element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
-          <Route path="/dashboard" element={<div>Welcome to Dashboard</div>} />
-          <Route path="/group" element={<GroupDashboard />} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
+          <Route index element={<div>Welcome to Dashboard</div>} />
+          <Route path="group" element={<GroupDashboard />} />
+          <Route path="chain" element={<ChainDashboard />} />
         </Route>
         
         {/* Default route */}
