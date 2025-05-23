@@ -40,6 +40,9 @@ const Dashboard = () => {
                             <li>
                                 <Link to="/dashboard/brand">Brand Management</Link>
                             </li>
+                            <li>
+                                <Link to="/dashboard/zone">Zone Management</Link>
+                            </li>
                         </>
                     )}
                     <li>

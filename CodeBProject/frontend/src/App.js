@@ -9,6 +9,7 @@ import GroupDashboard from './components/GroupDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import ChainDashboard from './components/ChainDashboard';
 import BrandDashboard from './components/BrandDashboard';
+import ZoneManagement from './components/zone/ZoneManagement';
 import './App.css';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="group" element={<GroupDashboard />} />
           <Route path="chain" element={<ChainDashboard />} />
           <Route path="brand" element={<BrandDashboard />} />
+          <Route path="zone" element={<ZoneManagement />} />
         </Route>
         
         {/* Default route - redirect to login */}

@@ -1,0 +1,17 @@
+package com.bhagyashri.codebproject.dto;
+
+import java.time.LocalDateTime;
+import lombok.Data;
+
+@Data
+public class ZoneResponse {
+    private Long zoneId;
+    private String zoneName;
+    private Long brandId;
+    private String brandName;
+    private String chainName;
+    private String groupName;
+    private boolean active;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+} 
