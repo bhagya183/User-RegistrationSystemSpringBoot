@@ -1,0 +1,8 @@
+package com.bhagyashri.codebproject.dto;
+
+import lombok.Data;
+
+@Data
+public class GroupRequest {
+    private String groupName;
+} 

@@ -5,7 +5,9 @@ import Register from './components/auth/Register';
 import ForgotPassword from './components/auth/ForgotPassword';
 import ResetPassword from './components/auth/ResetPassword';
 import Dashboard from './components/Dashboard';
+import GroupDashboard from './components/GroupDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import './App.css';
 
 const App = () => {
   return (
@@ -18,37 +20,14 @@ const App = () => {
         <Route path="/reset-password" element={<ResetPassword />} />
         
         {/* Protected routes */}
-        <Route 
-          path="/dashboard" 
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          } 
-        />
-        
-        {/* Admin routes */}
-        <Route 
-          path="/admin/*" 
-          element={
-            <ProtectedRoute allowedRoles={['ROLE_ADMIN']}>
-              <Dashboard />
-            </ProtectedRoute>
-          } 
-        />
-        
-        {/* Sales routes */}
-        <Route 
-          path="/sales/*" 
-          element={
-            <ProtectedRoute allowedRoles={['ROLE_ADMIN', 'ROLE_SALESPERSON']}>
-              <Dashboard />
-            </ProtectedRoute>
-          } 
-        />
+        <Route element={<ProtectedRoute><Dashboard /></ProtectedRoute>}>
+          <Route path="/dashboard" element={<div>Welcome to Dashboard</div>} />
+          <Route path="/group" element={<GroupDashboard />} />
+        </Route>
         
         {/* Default route */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </Router>
   );

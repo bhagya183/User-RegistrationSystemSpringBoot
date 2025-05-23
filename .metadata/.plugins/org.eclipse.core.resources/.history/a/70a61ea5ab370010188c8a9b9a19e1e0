@@ -1,0 +1,13 @@
+package com.bhagyashri.codebproject.dto;
+
+import lombok.Data;
+import java.time.LocalDateTime;
+
+@Data
+public class GroupResponse {
+    private Long groupId;
+    private String groupName;
+    private boolean isActive;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+} 
