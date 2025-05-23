@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard';
 import GroupDashboard from './components/GroupDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import ChainDashboard from './components/ChainDashboard';
+import BrandDashboard from './components/BrandDashboard';
 import './App.css';
 
 const App = () => {
@@ -25,11 +26,12 @@ const App = () => {
           <Route index element={<div>Welcome to Dashboard</div>} />
           <Route path="group" element={<GroupDashboard />} />
           <Route path="chain" element={<ChainDashboard />} />
+          <Route path="brand" element={<BrandDashboard />} />
         </Route>
         
-        {/* Default route */}
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        {/* Default route - redirect to login */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
   );

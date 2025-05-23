@@ -1,0 +1,14 @@
+package com.bhagyashri.codebproject.dto;
+
+import lombok.Data;
+import java.time.LocalDateTime;
+
+@Data
+public class BrandResponse {
+    private Long brandId;
+    private String brandName;
+    private ChainResponse chain;
+    private boolean isActive;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+} 

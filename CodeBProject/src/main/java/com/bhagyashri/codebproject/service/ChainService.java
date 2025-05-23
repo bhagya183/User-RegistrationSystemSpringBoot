@@ -30,7 +30,7 @@ public class ChainService {
     }
 
     public List<ChainResponse> getChainsByGroup(Long groupId) {
-        return chainRepository.findByGroupIdAndIsActive(groupId, true).stream()
+        return chainRepository.findByGroup_GroupIdAndIsActive(groupId, true).stream()
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());
     }

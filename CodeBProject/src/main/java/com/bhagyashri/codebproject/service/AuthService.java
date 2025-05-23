@@ -43,11 +43,12 @@ public class AuthService {
             String token = jwtUtil.generateToken(userDetails);
             logger.info("JWT token generated successfully");
             
-            // Extract the first role from authorities
+            // Extract the first role from authorities and remove ROLE_ prefix
             String role = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .findFirst()
-                .orElse("ROLE_USER");
+                .orElse("ROLE_USER")
+                .replace("ROLE_", ""); // Remove ROLE_ prefix
             logger.info("User role extracted: {}", role);
 
             return new AuthResponse(token, role);
